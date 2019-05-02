@@ -39,5 +39,4 @@ export class FormularioComponent implements OnInit {
         this.endereco = data;
       });
   }
-
 }
