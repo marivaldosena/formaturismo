@@ -1,5 +1,6 @@
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { CepService } from '../cep.service';
 
 @Component({
   selector: 'app-formulario',
@@ -21,13 +22,22 @@ export class FormularioComponent implements OnInit {
     uf: ''
   };
 
-  constructor() { }
+  endereco = {};
+
+  constructor(private cepService: CepService) { }
 
   ngOnInit() {
   }
 
   tratarSubmit() {
 
+  }
+
+  buscarCep(cep: string) {
+    this.cepService.obterCep(cep)
+      .subscribe((data: any) => {
+        this.endereco = data;
+      });
   }
 
 }

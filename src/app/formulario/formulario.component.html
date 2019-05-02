@@ -1,4 +1,3 @@
-{{ model | json }}
 <form #form="ngForm" (ngSubmit)="(tratarSubmit)">
   <!-- Nome -->
   <div class="form-group">
@@ -60,6 +59,7 @@
       [(ngModel)]="model.cep"
       #cep="ngModel"
       required
+      (blur)="buscarCep(cep.value)"
     />
     <span [hidden]="cep.valid || cep.pristine" class="text-danger">
       CEP é obrigatório.
@@ -76,6 +76,7 @@
       #logradouro="ngModel"
       required
       minlength="5"
+      [value]="endereco.logradouro"
     />
     <span
       [hidden]="logradouro.valid || logradouro.pristine"
@@ -110,8 +111,8 @@
       name="localidade"
       [(ngModel)]="model.localidade"
       #localidade="ngModel"
-      required
-      readonly
+      required readonly disabled
+      [value]="endereco.localidade"
     />
   </div>
 
@@ -123,8 +124,8 @@
       name="uf"
       [(ngModel)]="model.uf"
       #uf="ngModel"
-      required
-      readonly
+      required readonly disabled
+      [value]="endereco.uf"
     />
   </div>
 
