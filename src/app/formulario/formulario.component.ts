@@ -26,4 +26,8 @@ export class FormularioComponent implements OnInit {
   ngOnInit() {
   }
 
+  tratarSubmit() {
+
+  }
+
 }

@@ -1,33 +1,88 @@
 {{ model | json }}
-<form>
+<form #form="ngForm" (ngSubmit)="(tratarSubmit)">
   <!-- Nome -->
   <div class="form-group">
     <label>Nome</label>
-    <input type="text" name="nome" [(ngModel)]="model.nome" />
+    <input
+      type="text"
+      name="nome"
+      [(ngModel)]="model.nome"
+      #nome="ngModel"
+      required
+      minlength="3"
+    />
+    <span [hidden]="nome.valid || nome.pristine" class="text-danger">
+      Nome deve conter mais de 3 caracteres.
+    </span>
   </div>
 
   <!-- Sobrenome -->
   <div class="form-group">
     <label>Sobrenome</label>
-    <input type="text" name="sobrenome" [(ngModel)]="model.sobrenome" />
+    <input
+      type="text"
+      name="sobrenome"
+      [(ngModel)]="model.sobrenome"
+      #sobrenome="ngModel"
+      required
+      minlength="3"
+    />
+    <span [hidden]="sobrenome.valid || sobrenome.pristine" class="text-danger">
+      Sobrenome deve conter mais de 3 caracteres.
+    </span>
   </div>
 
   <!-- Data Nascimento -->
   <div class="form-group">
     <label>Data de Nascimento</label>
-    <input type="date" name="dataNascimento" [(ngModel)]="model.nome" />
+    <input
+      type="date"
+      name="dataNascimento"
+      [(ngModel)]="model.dataNascimento"
+      #dataNascimento="ngModel"
+      required
+      minlength="1977-11-18"
+    />
+    <span
+      [hidden]="dataNascimento.valid || dataNascimento.pristine"
+      class="text-danger"
+    >
+      Data de Nascimento deve ser maior de 18 de novembro de 1977.
+    </span>
   </div>
 
   <!-- CEP -->
   <div class="form-group">
     <label>CEP</label>
-    <input type="text" name="cep" [(ngModel)]="model.cep" />
+    <input
+      type="text"
+      name="cep"
+      [(ngModel)]="model.cep"
+      #cep="ngModel"
+      required
+    />
+    <span [hidden]="cep.valid || cep.pristine" class="text-danger">
+      CEP é obrigatório.
+    </span>
   </div>
 
   <!-- Logradouro -->
   <div class="form-group">
     <label>Logradouro</label>
-    <input type="text" name="logradouro" [(ngModel)]="model.logradouro" />
+    <input
+      type="text"
+      name="logradouro"
+      [(ngModel)]="model.logradouro"
+      #logradouro="ngModel"
+      required
+      minlength="5"
+    />
+    <span
+      [hidden]="logradouro.valid || logradouro.pristine"
+      class="text-danger"
+    >
+      Logradouro deve conter mais de 5 caracteres.
+    </span>
   </div>
 
   <!-- Número -->
@@ -39,18 +94,43 @@
   <!-- Complemento -->
   <div class="form-group">
     <label>Complemento</label>
-    <input type="text" name="complmento" [(ngModel)]="model.complemento" />
+    <input
+      type="text"
+      name="complmento"
+      [(ngModel)]="model.complemento"
+      #complemento="ngModel"
+    />
   </div>
 
   <!-- Localidade -->
   <div class="form-group">
     <label>Localidade</label>
-    <input type="text" name="localidade" [(ngModel)]="model.localidade" />
+    <input
+      type="text"
+      name="localidade"
+      [(ngModel)]="model.localidade"
+      #localidade="ngModel"
+      required
+      readonly
+    />
   </div>
 
   <!-- UF -->
   <div class="form-group">
     <label>UF</label>
-    <input type="text" name="uf" [(ngModel)]="model.uf" />
+    <input
+      type="text"
+      name="uf"
+      [(ngModel)]="model.uf"
+      #uf="ngModel"
+      required
+      readonly
+    />
+  </div>
+
+  <div class="form-group">
+    <button>Alterar Dados</button>
+    <button>Eu Concordo</button>
+    <button>Eu Não Concordo</button>
   </div>
 </form>
