@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formulario.component.sass']
 })
 export class FormularioComponent implements OnInit {
+
+  model = {
+    nome: '',
+    sobrenome: '',
+    dataNascimento: '',
+    cep: '',
+    logradouro: '',
+    numero: '',
+    complemento: '',
+    bairro: '',
+    localidade: '',
+    uf: ''
+  };
 
   constructor() { }
 

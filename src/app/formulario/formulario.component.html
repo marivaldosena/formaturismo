@@ -1,3 +1,56 @@
-<p>
-  formulario works!
-</p>
+{{ model | json }}
+<form>
+  <!-- Nome -->
+  <div class="form-group">
+    <label>Nome</label>
+    <input type="text" name="nome" [(ngModel)]="model.nome" />
+  </div>
+
+  <!-- Sobrenome -->
+  <div class="form-group">
+    <label>Sobrenome</label>
+    <input type="text" name="sobrenome" [(ngModel)]="model.sobrenome" />
+  </div>
+
+  <!-- Data Nascimento -->
+  <div class="form-group">
+    <label>Data de Nascimento</label>
+    <input type="date" name="dataNascimento" [(ngModel)]="model.nome" />
+  </div>
+
+  <!-- CEP -->
+  <div class="form-group">
+    <label>CEP</label>
+    <input type="text" name="cep" [(ngModel)]="model.cep" />
+  </div>
+
+  <!-- Logradouro -->
+  <div class="form-group">
+    <label>Logradouro</label>
+    <input type="text" name="logradouro" [(ngModel)]="model.logradouro" />
+  </div>
+
+  <!-- Número -->
+  <div class="form-group">
+    <label>Número</label>
+    <input type="text" name="numero" [(ngModel)]="model.numero" />
+  </div>
+
+  <!-- Complemento -->
+  <div class="form-group">
+    <label>Complemento</label>
+    <input type="text" name="complmento" [(ngModel)]="model.complemento" />
+  </div>
+
+  <!-- Localidade -->
+  <div class="form-group">
+    <label>Localidade</label>
+    <input type="text" name="localidade" [(ngModel)]="model.localidade" />
+  </div>
+
+  <!-- UF -->
+  <div class="form-group">
+    <label>UF</label>
+    <input type="text" name="uf" [(ngModel)]="model.uf" />
+  </div>
+</form>
