@@ -9,6 +9,7 @@
       #nome="ngModel"
       required
       minlength="3"
+      tabindex="1"
     />
     <span [hidden]="nome.valid || nome.pristine" class="text-danger">
       Nome deve conter mais de 3 caracteres.
@@ -25,6 +26,7 @@
       #sobrenome="ngModel"
       required
       minlength="3"
+      tabindex="2"
     />
     <span [hidden]="sobrenome.valid || sobrenome.pristine" class="text-danger">
       Sobrenome deve conter mais de 3 caracteres.
@@ -41,6 +43,7 @@
       #dataNascimento="ngModel"
       required
       minlength="1977-11-18"
+      tabindex="3"
     />
     <span
       [hidden]="dataNascimento.valid || dataNascimento.pristine"
@@ -60,6 +63,7 @@
       #cep="ngModel"
       required
       (blur)="buscarCep(cep.value)"
+      tabindex="4"
     />
     <span [hidden]="cep.valid || cep.pristine" class="text-danger">
       CEP é obrigatório.
@@ -75,6 +79,7 @@
       [(ngModel)]="model.logradouro"
       #logradouro="ngModel"
       required
+      disabled
       minlength="5"
       [value]="endereco.logradouro"
     />
@@ -89,7 +94,13 @@
   <!-- Número -->
   <div class="form-group">
     <label>Número</label>
-    <input type="text" name="numero" [(ngModel)]="model.numero" />
+    <input
+      type="text"
+      name="numero"
+      [(ngModel)]="model.numero"
+      #numero="ngModel"
+      tabindex="5"
+    />
   </div>
 
   <!-- Complemento -->
@@ -97,9 +108,25 @@
     <label>Complemento</label>
     <input
       type="text"
-      name="complmento"
+      name="complemento"
       [(ngModel)]="model.complemento"
       #complemento="ngModel"
+      tabindex="6"
+    />
+  </div>
+
+  <!-- Bairro -->
+  <div class="form-group">
+    <label>Bairro</label>
+    <input
+      type="text"
+      name="bairro"
+      [(ngModel)]="model.bairro"
+      #bairro="ngModel"
+      required
+      readonly
+      disabled
+      [value]="endereco.bairro"
     />
   </div>
 
@@ -111,7 +138,9 @@
       name="localidade"
       [(ngModel)]="model.localidade"
       #localidade="ngModel"
-      required readonly disabled
+      required
+      readonly
+      disabled
       [value]="endereco.localidade"
     />
   </div>
@@ -124,7 +153,9 @@
       name="uf"
       [(ngModel)]="model.uf"
       #uf="ngModel"
-      required readonly disabled
+      required
+      readonly
+      disabled
       [value]="endereco.uf"
     />
   </div>
